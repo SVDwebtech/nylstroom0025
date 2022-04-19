@@ -1,0 +1,517 @@
+/*
+0px			- 		600px:			Phone
+600px		- 		900px: 			Tablet Portrait 
+900px		-		1200px:			Tablet Landscape
+1200px		-		1800px:			Desktop First Approach (is where our 
+									normal styles apply)
+1800px +							Big Desktop
+
+$breakpoint argument choices
+	- phone and <
+	- tablet-portrait and <
+	- tablet-landscape and <
+	- big-desktop and >
+
+ORDER: base + typography > general layout + grid > page layout > components
+*/
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-4.8rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(4.8rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes rotateAndMoveInRight {
+  0% {
+    opacity: 0;
+    transform: translateY(-12rem) translateX(15rem) scale(1) rotateY(45deg);
+  }
+  25% {
+    opacity: 0;
+  }
+  65% {
+    transform: scale(0.4) rotateY(140deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0rem) translateX(0rem) scale(1) rotateY(360deg);
+  }
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* 	1rem is equal to 10px */
+  /* 	because 10px / 10 is equal to 1rem */
+  /* 	therefore 30px is equal to 3rem */
+  /* 	the default font size of the browser is 16px */
+  /* 	10px / 16px *100 = 62.5% */
+  font-size: 62.5%;
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 59.38%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  /* This makes dealing with the sizes of elements much easier, 
+  	and generally eliminates a number of pitfalls you can stumble on
+  	 while laying out your content. */
+  /* The width and height properties include the content, padding, and border, 
+  	but do not include the margin.  Note that padding and border will be inside 
+  	of the box. */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  padding: 0 2rem 2rem 2rem;
+}
+@media (max-width: 75em) {
+  body {
+    padding: 0;
+  }
+}
+
+.u-center-text {
+  text-align: center;
+}
+
+.u-margin-bottom-xtrasmall {
+  margin-bottom: 0.5rem;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1rem;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 3rem;
+}
+
+.u-margin-bottom-large {
+  margin-bottom: 5rem;
+}
+
+.u-margin-bottom-xtralarge {
+  margin-bottom: 7rem;
+}
+
+.u-margin-top-xtrasmall {
+  margin-top: 0.5rem;
+}
+
+.u-margin-top-small {
+  margin-top: 1rem;
+}
+
+.u-margin-top-medium {
+  margin-top: 3rem;
+}
+
+.u-margin-top-large {
+  margin-top: 5rem;
+}
+
+.u-margin-top-xtralarge {
+  margin-top: 7rem;
+}
+
+.subsection-wrapper-header {
+  padding: 4rem 5rem 0rem 5rem;
+}
+
+.subsection-wrapper-about {
+  padding: 0 5rem 5rem 5rem;
+}
+
+.subsection-wrapper-contact {
+  padding: 0 5rem 5rem 5rem;
+}
+
+.btn, .btn:link, .btn:visited {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  outline: none;
+  padding: 0.3em 1.5em;
+  backface-visibility: hidden;
+  transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+}
+.btn--onGreyBackground {
+  font-size: 1.4rem;
+  font-weight: 600;
+  background-color: transparent;
+  border-bottom: 2px solid rgb(177, 10, 10);
+  border-right: 2px solid rgb(177, 10, 10);
+}
+.btn--onGreyBackground:hover {
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.4);
+  transform: translateY(-0.2rem);
+}
+.btn--onGreyBackground:active, .btn--onGreyBackground:focus {
+  outline: none;
+  transform: translateY(0.2rem);
+  box-shadow: 0 0.5rem 2rem rgba(255, 255, 255, 0.3);
+}
+
+.btnClose, .btnClose:link, .btnClose:visited {
+  text-decoration: none;
+}
+
+.header {
+  min-height: 96vh;
+}
+
+.header {
+  background-size: cover;
+  background-position: bottom;
+  position: relative;
+}
+.header__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.header__contentTopCenter {
+  width: 90rem;
+}
+@media (max-width: 18.75em) {
+  .header__contentTopCenter {
+    width: 36rem;
+  }
+}
+.header__headingPrimary {
+  padding: 3em 5em;
+}
+.header__headingPrimary--span {
+  display: block;
+}
+.header__headingPrimary--span1 {
+  animation-name: moveInLeft;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+}
+.header__headingPrimary--span2 {
+  animation-name: rotateAndMoveInRight;
+  animation-duration: 2s;
+  animation-delay: 900ms;
+  animation-timing-function: cubic-bezier(0.12, 0.02, 0.93, 0.9);
+  animation-fill-mode: backwards;
+}
+.header__headingPrimary--span3 {
+  animation-name: moveInRight;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+}
+.header__contentBottomLeft {
+  width: 35rem;
+}
+.header__paragraph {
+  text-align: center;
+}
+
+.about {
+  min-height: 85vh;
+  padding-top: 4rem;
+}
+.about__content {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  position: relative;
+}
+.about__content--images {
+  width: 45%;
+  margin-right: 4.5rem;
+}
+.about__content--text {
+  width: 45%;
+  margin-left: 4.5rem;
+}
+
+.skills {
+  min-height: 93vh;
+  padding-top: 4rem;
+}
+.skills__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  text-align: justify;
+}
+.skills__content hr {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+.skills__contAbove {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.skills__contAbove--description {
+  width: 45%;
+}
+.skills__contAbove--carousel {
+  width: 45%;
+}
+.skills__contBelow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.skills__contBelow--description {
+  width: 45%;
+  order: 2;
+}
+.skills__contBelow--toolsContainer {
+  display: flex;
+  width: 45%;
+  padding: 0;
+}
+
+.portfolio {
+  min-height: 93vh;
+  padding-top: 4rem;
+}
+.portfolio__content {
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+}
+.portfolio__content:hover > :not(:last-child) > img {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.portfolio__content:hover > ::after {
+  background-color: rgba(209, 192, 192, 0.9);
+  border-radius: 1000px;
+  transform: translate(-50%, -50%) scale(0);
+}
+.portfolio__contAbove {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 300px;
+  position: relative;
+}
+.portfolio__contAbove::after {
+  content: "";
+  width: 75%;
+  height: 65%;
+  background-color: rgba(255, 255, 255, 0.85);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s;
+}
+.portfolio__contAbove--img {
+  width: 75%;
+  height: 65%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s;
+}
+.portfolio__contBelow {
+  flex: 1 0 320px;
+  padding: 3rem 8rem;
+  position: relative;
+}
+.portfolio__contBelow p {
+  padding: 0 1rem;
+  max-width: 280px;
+  margin: 0 auto;
+}
+.portfolio__contBelow > :not(:last-child) {
+  padding-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #04042f;
+}
+.portfolio__contBelow > :first-child {
+  border-bottom: none;
+}
+
+.contact {
+  min-height: 93vh;
+  padding-top: 4rem;
+}
+.contact__content {
+  display: flex;
+  justify-content: space-evenly;
+}
+.contact__contAbove {
+  display: flex;
+  flex-direction: column;
+}
+.contact__contAbove--telAndEmail, .contact__contAbove--socialMedia {
+  box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.9);
+  min-height: 25vh;
+  padding: 8rem 3rem 2rem;
+}
+@media (max-width: 18.75em) {
+  .contact__contAbove--telAndEmail, .contact__contAbove--socialMedia {
+    min-height: 21vh;
+  }
+}
+.contact__contAbove--telAndEmail, .contact__contAbove--socialMedia {
+  position: relative;
+}
+.contact__contAbove--telAndEmail h3, .contact__contAbove--socialMedia h3 {
+  padding: 1em;
+  margin-bottom: 3rem;
+  position: absolute;
+  top: -2rem;
+  left: -2rem;
+}
+@media (max-width: 18.75em) {
+  .contact__contAbove {
+    width: 32rem;
+  }
+}
+.contact__contBelow {
+  box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.9);
+  padding: 5rem 3rem 3rem;
+  min-height: 60.5vh;
+  position: relative;
+}
+.contact__contBelow h3 {
+  padding: 1em;
+  margin-bottom: 3rem;
+  position: absolute;
+  top: -2rem;
+  left: -2rem;
+}
+@media (max-width: 18.75em) {
+  .contact__contBelow {
+    width: 32rem;
+    padding: 7rem 4rem 3rem;
+  }
+}
+.contact__itemsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 9vh;
+  padding-left: 0rem;
+}
+@media (max-width: 18.75em) {
+  .contact__itemsContainer {
+    height: 8vh;
+  }
+}
+.contact__itemsContainer--tel, .contact__itemsContainer--email {
+  display: block;
+  transition: all 0.2s;
+}
+.contact__itemsContainer--tel:hover, .contact__itemsContainer--email:hover {
+  font-size: 1.45rem;
+}
+@media (max-width: 18.75em) {
+  .contact__itemsContainer--tel:hover, .contact__itemsContainer--email:hover {
+    font-size: 1.6rem;
+  }
+}
+.contact__itemsContainer i {
+  margin-right: 1rem;
+}
+.contact__socialMedia {
+  display: flex;
+  justify-content: flex-start;
+  min-height: 5rem;
+  padding-left: 1rem;
+}
+.contact__socialMedia .socialMedia__linkWrapper {
+  justify-content: center;
+}
+.contact__socialMedia .socialMediaContact__button, .contact__socialMedia .socialMediaContact__button:link, .contact__socialMedia .socialMediaContact__button:visited {
+  text-decoration: none;
+  outline: none;
+  background-color: transparent;
+  backface-visibility: hidden;
+}
+.contact__form {
+  padding-left: 0rem;
+}
+.contact__form .nameAndEmail {
+  display: flex;
+  justify-content: flex-start;
+}
+.contact__form--nameInputs {
+  flex: 1 0 98%;
+}
+.contact__form--emailInputs {
+  flex: 1 0 98%;
+}
+.contact__form--item {
+  margin-top: 0rem;
+}
+.contact__form--labels {
+  margin-left: 0.2rem;
+  margin-bottom: 5rem;
+}
+.contact__form--inputs {
+  display: block;
+  padding: 0.5rem 0.5rem;
+  margin-top: 0rem;
+  width: 95%;
+}
+.contact__form--subject {
+  width: 100%;
+}
+.contact__form--message {
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/*# sourceMappingURL=styles.css.map */

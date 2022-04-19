@@ -1,0 +1,14 @@
+{
+  "name": "nylstroom0025",
+  "version": "1.0.0",
+  "description": "A static website for information on Nylstroom",
+  "main": "app.js",
+  "scripts": {
+    "compile:sass": "sass sass/main.scss css/styles.css -w"
+  },
+  "author": "Schalk van Dyk",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.50.1"
+  }
+}

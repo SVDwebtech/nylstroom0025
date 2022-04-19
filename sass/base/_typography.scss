@@ -1,0 +1,58 @@
+body {
+	//color: $color-font-default;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	line-height: 1.6;
+	// padding for large screen sizes
+	padding: 0 2rem 2rem 2rem;
+
+	@include respond(tab-land) {
+		// 0 padding on smaller screen sizes
+		// and adjust the navbar margin-left and margin-right to 0 as well
+		padding: 0;
+	}
+}
+
+// topography of heading-primary;
+.heading-primary {
+}
+
+// topography of heading-secondary;
+.heading-secondary {
+}
+
+// topography of heading-tertiary;
+.heading-tertiary {
+}
+
+// topography of paragraph;
+.paragraph {
+}
+
+// topography of navbar;
+.navbar {
+}
+
+// topography of hamburger menu;
+.hamburger {
+}
+
+// topography of buttons;
+.btn {
+}
+
+// topography of about-section;
+.header {
+}
+
+// topography of about-section;
+.about {
+}
+
+// topography of contact-section;
+.contact {
+}
+
+// topography of footer-section;
+.footer {
+}
