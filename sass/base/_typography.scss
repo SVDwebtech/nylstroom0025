@@ -14,11 +14,44 @@ body {
 }
 
 // topography of heading-primary;
-.heading-primary {
-}
+.header {
+	&__heading--primary {
 
-// topography of heading-secondary;
-.heading-secondary {
+		font-size: 5rem;
+
+		// @include respond(tab-port) {
+		// 	font-size: 10rem;
+		// }
+		// @include respond(tab-land) {
+		// 	font-size: 15rem;
+		// }
+		// @include respond(desk) {
+		// 	font-size: 20rem;
+		// }
+		// @include respond(big-desk) {
+		// 	font-size: 25rem;
+		// }
+		
+	}
+
+	// topography of heading-secondary;
+	&__heading--secondary {
+		
+		font-size: 3rem;
+
+		// @include respond(tab-port) {
+		// 	font-size: 6rem;
+		// }
+		// @include respond(tab-land) {
+		// 	font-size: 9rem;
+		// }
+		// @include respond(desk) {
+		// 	font-size: 12rem;
+		// }
+		// @include respond(big-desk) {
+		// 	font-size: 18rem;
+		// }
+	}
 }
 
 // topography of heading-tertiary;
@@ -27,6 +60,7 @@ body {
 
 // topography of paragraph;
 .paragraph {
+	font-size: 1.4rem;
 }
 
 // topography of navbar;

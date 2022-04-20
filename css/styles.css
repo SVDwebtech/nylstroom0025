@@ -1,18 +1,20 @@
 /*
-0px			- 		600px:			Phone
-600px		- 		900px: 			Tablet Portrait 
-900px		-		1200px:			Tablet Landscape
-1200px		-		1800px:			Desktop First Approach (is where our 
-									normal styles apply)
-1800px +							Big Desktop
+0px			- 		600px:			mobile 		--> Mobile First Approach 
+											   	    (where normal styles apply)
+600px		- 		900px: 			tab-port 	-->	Tablet Portrait 
+900px		-		1200px:			tab-land	-->	Tablet Landscape
+1200px		-		1800px:			desk		-->	Desktop 
+1800px +							big-desk	-->	Big Desktop
 
+REMEMBER: 1em = 16px;
 $breakpoint argument choices
-	- phone and <
-	- tablet-portrait and <
-	- tablet-landscape and <
-	- big-desktop and >
+	- tab-port and >	600 --> 900 	: min-width: 37.5em (600/16)
+	- tab-land and >	900 --> 1200	: min-width: 56.25em (900/16)
+	- desk and >		1200 --> 1800	: min-width: 75em (1200/16)
+	- big-desk and >    1800 +			: min-width: 112.5em (1800/16)
 
 ORDER: base + typography > general layout + grid > page layout > components
+
 */
 @keyframes moveInLeft {
   0% {
@@ -71,16 +73,31 @@ html {
   /* 	therefore 30px is equal to 3rem */
   /* 	the default font size of the browser is 16px */
   /* 	10px / 16px *100 = 62.5% */
+  /* 	10px / 16px *100 = 62.5% */
   font-size: 62.5%;
 }
-@media (max-width: 75em) {
+@media (min-width: 37.5em) {
   html {
-    font-size: 59.38%;
+    /* 	12px / 16px *100 = 75% */
+    font-size: 75%;
+  }
+}
+@media (min-width: 56.25em) {
+  html {
+    /* 	13px / 16px *100 = 81.25% */
+    font-size: 81.25%;
+  }
+}
+@media (min-width: 75em) {
+  html {
+    /* 	15px / 16px *100 = 93.75% */
+    font-size: 93.75%;
   }
 }
 @media (min-width: 112.5em) {
   html {
-    font-size: 75%;
+    /* 	18px / 16px *100 = 112.5% */
+    font-size: 112.5%;
   }
 }
 
@@ -100,10 +117,21 @@ body {
   line-height: 1.6;
   padding: 0 2rem 2rem 2rem;
 }
-@media (max-width: 75em) {
+@media (min-width: 56.25em) {
   body {
     padding: 0;
   }
+}
+
+.header__heading--primary {
+  font-size: 5rem;
+}
+.header__heading--secondary {
+  font-size: 3rem;
+}
+
+.paragraph {
+  font-size: 1.4rem;
 }
 
 .u-center-text {
@@ -197,54 +225,11 @@ body {
   min-height: 96vh;
 }
 
-.header {
-  background-size: cover;
-  background-position: bottom;
-  position: relative;
-}
-.header__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.header__contentTopCenter {
-  width: 90rem;
-}
-@media (max-width: 18.75em) {
-  .header__contentTopCenter {
-    width: 36rem;
-  }
-}
-.header__headingPrimary {
-  padding: 3em 5em;
-}
-.header__headingPrimary--span {
+.header__heading--primary {
   display: block;
 }
-.header__headingPrimary--span1 {
-  animation-name: moveInLeft;
-  animation-duration: 3s;
-  animation-timing-function: ease-out;
-}
-.header__headingPrimary--span2 {
-  animation-name: rotateAndMoveInRight;
-  animation-duration: 2s;
-  animation-delay: 900ms;
-  animation-timing-function: cubic-bezier(0.12, 0.02, 0.93, 0.9);
-  animation-fill-mode: backwards;
-}
-.header__headingPrimary--span3 {
-  animation-name: moveInRight;
-  animation-duration: 3s;
-  animation-timing-function: ease-out;
-}
-.header__contentBottomLeft {
-  width: 35rem;
-}
-.header__paragraph {
-  text-align: center;
+.header__heading--secondary {
+  display: block;
 }
 
 .about {
@@ -391,11 +376,6 @@ body {
   min-height: 25vh;
   padding: 8rem 3rem 2rem;
 }
-@media (max-width: 18.75em) {
-  .contact__contAbove--telAndEmail, .contact__contAbove--socialMedia {
-    min-height: 21vh;
-  }
-}
 .contact__contAbove--telAndEmail, .contact__contAbove--socialMedia {
   position: relative;
 }
@@ -405,11 +385,6 @@ body {
   position: absolute;
   top: -2rem;
   left: -2rem;
-}
-@media (max-width: 18.75em) {
-  .contact__contAbove {
-    width: 32rem;
-  }
 }
 .contact__contBelow {
   box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.9);
@@ -424,12 +399,6 @@ body {
   top: -2rem;
   left: -2rem;
 }
-@media (max-width: 18.75em) {
-  .contact__contBelow {
-    width: 32rem;
-    padding: 7rem 4rem 3rem;
-  }
-}
 .contact__itemsContainer {
   display: flex;
   flex-direction: column;
@@ -437,22 +406,12 @@ body {
   height: 9vh;
   padding-left: 0rem;
 }
-@media (max-width: 18.75em) {
-  .contact__itemsContainer {
-    height: 8vh;
-  }
-}
 .contact__itemsContainer--tel, .contact__itemsContainer--email {
   display: block;
   transition: all 0.2s;
 }
 .contact__itemsContainer--tel:hover, .contact__itemsContainer--email:hover {
   font-size: 1.45rem;
-}
-@media (max-width: 18.75em) {
-  .contact__itemsContainer--tel:hover, .contact__itemsContainer--email:hover {
-    font-size: 1.6rem;
-  }
 }
 .contact__itemsContainer i {
   margin-right: 1rem;
