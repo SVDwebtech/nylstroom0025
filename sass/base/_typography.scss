@@ -4,63 +4,30 @@ body {
 	font-weight: 300;
 	line-height: 1.6;
 	// padding for large screen sizes
-	padding: 0 2rem 2rem 2rem;
-
-	@include respond(tab-land) {
-		// 0 padding on smaller screen sizes
-		// and adjust the navbar margin-left and margin-right to 0 as well
-		padding: 0;
-	}
+	padding: 0 1rem 1rem 1rem;
 }
 
-// topography of heading-primary;
+
 .header {
+	&__heading {
+		text-align: center;
+	}
 	&__heading--primary {
-
-		font-size: 5rem;
-
-		// @include respond(tab-port) {
-		// 	font-size: 10rem;
-		// }
-		// @include respond(tab-land) {
-		// 	font-size: 15rem;
-		// }
-		// @include respond(desk) {
-		// 	font-size: 20rem;
-		// }
-		// @include respond(big-desk) {
-		// 	font-size: 25rem;
-		// }
-		
+		font-size: 2rem;
+		font-weight: 900;
 	}
-
-	// topography of heading-secondary;
+	
 	&__heading--secondary {
-		
-		font-size: 3rem;
-
-		// @include respond(tab-port) {
-		// 	font-size: 6rem;
-		// }
-		// @include respond(tab-land) {
-		// 	font-size: 9rem;
-		// }
-		// @include respond(desk) {
-		// 	font-size: 12rem;
-		// }
-		// @include respond(big-desk) {
-		// 	font-size: 18rem;
-		// }
+		font-size: 1.7rem;
 	}
-}
-
-// topography of heading-tertiary;
-.heading-tertiary {
+	&__paragraph {
+		text-align: center;
+	}
 }
 
 // topography of paragraph;
 .paragraph {
-	font-size: 1.4rem;
+	font-size: 1.2rem;
 }
 
 // topography of navbar;

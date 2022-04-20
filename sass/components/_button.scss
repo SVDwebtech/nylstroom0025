@@ -15,7 +15,9 @@
 		transition: box-shadow .2s, transform .2s, border .2s;
 	}
 
-	&--onGreyBackground {
+	&--header {
+		display: block;
+		
 		//color: $color-font-brightRed;
 		font-size: 1.4rem;
 		font-weight: 600;
@@ -23,7 +25,8 @@
 		//border: 2px solid $color-font-brightRed;
 		border-bottom: 2px solid rgb(177, 10, 10);
 		border-right: 2px solid rgb(177, 10, 10);
-		// padding: .15em 1em;
+		padding: .15em 1em;
+		margin: 2rem auto;
 
 		&:hover {
 			//border: 2px solid $color-font-brightRed;
