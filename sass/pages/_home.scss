@@ -4,6 +4,11 @@
 
 .header {
 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+
 	&__heading {
 		.heading__primary {
 			&--main, &--sub {
