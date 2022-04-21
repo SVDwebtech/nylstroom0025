@@ -118,15 +118,20 @@ body {
   padding: 0 1rem 1rem 1rem;
 }
 
+.header {
+  max-width: 40rem;
+  margin: 0 auto;
+}
 .header__heading {
   text-align: center;
 }
-.header__heading--primary {
-  font-size: 2rem;
+.header .heading__primary--main {
+  font-size: 2.4rem;
   font-weight: 900;
 }
-.header__heading--secondary {
-  font-size: 1.7rem;
+.header .heading__primary--subb {
+  font-size: 1.9rem;
+  font-weight: 700;
 }
 .header__paragraph {
   text-align: center;
@@ -230,6 +235,11 @@ body {
   min-height: 96vh;
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .header__heading .heading__primary--main, .header__heading .heading__primary--sub {
   display: block;
 }
