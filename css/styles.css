@@ -110,12 +110,17 @@ body {
   	of the box. */
   box-sizing: border-box;
 }
+@media (min-width: 56.25em) {
+  body {
+    padding: 0 1rem 1rem 1rem;
+  }
+}
 
 body {
+  color: #c9c8c8;
   font-family: "Lato", sans-serif;
   font-weight: 300;
   line-height: 1.6;
-  padding: 0 1rem 1rem 1rem;
 }
 
 .header {
@@ -139,6 +144,7 @@ body {
 
 .paragraph {
   font-size: 1.2rem;
+  font-weight: 400;
 }
 
 .u-center-text {
@@ -199,6 +205,7 @@ body {
 
 .btn, .btn:link, .btn:visited {
   display: inline-block;
+  color: inherit;
   text-align: center;
   text-decoration: none;
   border-radius: 5px;
@@ -239,6 +246,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-image: linear-gradient(0.55turn, rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.88) 75%, rgb(0, 0, 0) 98%), url(/img/bgHeaderImage.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem;
 }
 .header__heading .heading__primary--main, .header__heading .heading__primary--sub {
   display: block;

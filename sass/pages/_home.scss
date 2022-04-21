@@ -7,6 +7,13 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	background-image: linear-gradient(.55turn,rgba(0,0,0, .1) 10%, rgba(0,0,0, .88) 75%, rgba(0,0,0, 1) 98%), url(/img/bgHeaderImage.jpg);
+	background-size: cover;
+	background-position:center;
+	background-repeat: no-repeat;
+
+	padding: 2rem;
 	
 
 	&__heading {
