@@ -52,4 +52,9 @@ body {
 		but do not include the margin.  Note that padding and border will be inside 
 		of the box. */
 	box-sizing: border-box;
+
+	@include respond(tab-land) {
+	// padding for large screen sizes
+	padding: 0 1rem 1rem 1rem;
+	}
 }
